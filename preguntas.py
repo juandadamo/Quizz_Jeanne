@@ -38,7 +38,7 @@ def salida_pregunta(p,window,jugador1,ventana_principal):
         paso_8(ventana_principal,jugador1) 
     if jugador1.npregunta == 8:        
         print(jugador1.puntaje)
-
+        final(ventana_principal,jugador1)
                 
 def accion():
     variable = tk.IntVar()
@@ -669,7 +669,7 @@ def paso_8(ventana_principal,jugador1):
     ventana.geometry(f'{ancho:0d}x{alto:0d}')
 
     #Titulo
-    Texto_t = tk.Text(ventana,height=10,width=50)#,width = ancho)
+    Texto_t = tk.Text(ventana,height=10,width=60)#,width = ancho)
     Texto_t.tag_configure("center", justify='center')
     Texto_t.grid(row=0,columnspan=4)
     textot = 'Si le preguntas a alguien si te ves bien y te responde esto :'
@@ -680,9 +680,10 @@ def paso_8(ventana_principal,jugador1):
     fotoa = ImageTk.PhotoImage(image)
     Texto_t.image = fotoa
     Texto_t.image_create(tk.END, image=fotoa)
-    image = Image.open(os.path.join(cwd,"imagenes/estima/emoji_hot.png"))
-    image = image.resize((30, 30), Image.ANTIALIAS) 
-    fotob = ImageTk.PhotoImage(image)
+    
+    imageb = Image.open(os.path.join(cwd,"imagenes/estima/emoji_hot.png"))
+    imageb = imageb.resize((30, 30), Image.ANTIALIAS) 
+    fotob = ImageTk.PhotoImage(imageb)
     Texto_t.image2 = fotob
     Texto_t.image_create(tk.END, image=fotob)    
   
@@ -691,7 +692,7 @@ def paso_8(ventana_principal,jugador1):
     image = Image.open(os.path.join(cwd,"imagenes/estima.png"))
     image = image.resize((150, 150), Image.ANTIALIAS) 
     fotoc = ImageTk.PhotoImage(image)
-    Texto_t.image2 = fotoc
+    Texto_t.image3 = fotoc
     Texto_t.image_create(tk.END, image=fotoc)   
     
     
@@ -819,25 +820,23 @@ def final(ventana_principal,jugador1):
     ventana.geometry(f'{ancho:0d}x{alto:0d}')
 
     #Titulo
-    Texto_t = tk.Text(ventana,height=50,width=50)#,width = ancho)
+    Texto_t = tk.Text(ventana,height=25,width=50)#,width = ancho)
     Texto_t.tag_configure("center", justify='center')
     pto = jugador1.puntaje
     if np.logical_and(pto>78,pto<86):
-        imagen_personaje = 'hinata"
+        imagen_personaje = 'hinata'
     elif np.logical_and(pto>78,pto<86):        
-        imagen_personaje = 'kakashi"
+        imagen_personaje = 'kakashi'
     elif np.logical_and(pto>86,pto<92):        
-        imagen_personaje = 'naruto"
-    sakura
-    image = Image.open(os.path.join(cwd,"imagenes/Naruto/'+imagen_personaje+'.png"))
-    image = image.resize((30, 30), Image.ANTIALIAS) 
+        imagen_personaje = 'naruto'
+    else:
+        imagen_personaje = 'sasuke'
+    image = Image.open(os.path.join(cwd,"imagenes/Naruto/"+imagen_personaje+".png"))
+    image = image.resize((400, 400), Image.ANTIALIAS) 
     fotoa = ImageTk.PhotoImage(image)
     Texto_t.image = fotoa
     Texto_t.image_create(tk.END, image=fotoa)
-    image = Image.open(os.path.join(cwd,"imagenes/estima/emoji_hot.png"))
-    image = image.resize((30, 30), Image.ANTIALIAS) 
-    fotob = ImageTk.PhotoImage(image)
-    Texto_t.image2 = fotob
-    Texto_t.image_create(tk.END, image=fotob)    
+    Texto_t.grid(row=0, column=0)
+    ventana.grid_columnconfigure(2, minsize=2)  
  
     
