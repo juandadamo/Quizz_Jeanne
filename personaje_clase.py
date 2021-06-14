@@ -13,7 +13,7 @@ class personaje:
     def punto_pregunta(self,resultado):
         valor_actual = resultado*10 + np.int(10**0.5*np.random.randn())
         self.pregunta_actual = valor_actual
-        self.puntaje += self.puntaje + self.pregunta_actual
+        self.puntaje +=  self.pregunta_actual
             
     def descubre(self):
         if self.puntaje <100:
