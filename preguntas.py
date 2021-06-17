@@ -10,16 +10,16 @@ from PIL import Image
 import personaje_clase
 from personaje_clase import personaje
 
-def salida_pregunta(p,window,jugador1,ventana_principal):
+def salida_pregunta(p,window,jugador1,ventana_principal,punto_pregunta):
     jugador1.npregunta += 1
-    print(p)
-    p2 = p.widgetName.capitalize()
-    punto_pregunta_t = p2.split('utton')[-1]
-    if len(punto_pregunta_t)>0:
-        jugador1.punto_pregunta(np.float(punto_pregunta_t))
+    #print(p)
+    #p2 = p.widgetName.capitalize()
+    #punto_pregunta_t = p2.split('utton')[-1]
+    #if len(punto_pregunta_t)>0:
+    #    jugador1.punto_pregunta(np.float(punto_pregunta_t))
         
-    else:
-        jugador1.punto_pregunta(1)
+    #else:
+    jugador1.punto_pregunta(punto_pregunta)
     window.destroy()
     print(f'Puntos: {jugador1.puntaje:.2f}')
     if jugador1.npregunta == 1:
@@ -132,11 +132,11 @@ def paso_1(ventana_principal):
     boton5 = tk.Button(ventana, text="Couscous",pady=5,padx=2,activebackground='#a8acfd',height=2,width=12,wraplength=ancho_texto_px,justify='center')
     boton5.grid(row=4, column=1)
     
-    boton1.configure(command=lambda button=boton1: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton2.configure(command=lambda button=boton2: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton3.configure(command=lambda button=boton3: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton4.configure(command=lambda button=boton4: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton5.configure(command=lambda button=boton5: salida_pregunta(button,ventana,jugador1,ventana_principal))
+    boton1.configure(command=lambda button=boton1: salida_pregunta(button,ventana,jugador1,ventana_principal,0))
+    boton2.configure(command=lambda button=boton2: salida_pregunta(button,ventana,jugador1,ventana_principal,4))
+    boton3.configure(command=lambda button=boton3: salida_pregunta(button,ventana,jugador1,ventana_principal,1))
+    boton4.configure(command=lambda button=boton4: salida_pregunta(button,ventana,jugador1,ventana_principal,2))
+    boton5.configure(command=lambda button=boton5: salida_pregunta(button,ventana,jugador1,ventana_principal,3))
     ventana.grid_columnconfigure(2, minsize=2)        
 
 def paso_2(ventana_principal,jugador1):
@@ -222,11 +222,11 @@ def paso_2(ventana_principal,jugador1):
     boton4.grid(row=4, column=0)
     boton5 = tk.Button(ventana, text="Avengers",pady=5,padx=2,activebackground='#a8acfd',height=2,width=12,wraplength=ancho_texto_px,justify='center')
     boton5.grid(row=4, column=1)
-    boton1.configure(command=lambda button=boton1: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton2.configure(command=lambda button=boton2: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton3.configure(command=lambda button=boton3: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton4.configure(command=lambda button=boton4: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton5.configure(command=lambda button=boton5: salida_pregunta(button,ventana,jugador1,ventana_principal))
+    boton1.configure(command=lambda button=boton1: salida_pregunta(button,ventana,jugador1,ventana_principal,0))
+    boton2.configure(command=lambda button=boton2: salida_pregunta(button,ventana,jugador1,ventana_principal,3))
+    boton3.configure(command=lambda button=boton3: salida_pregunta(button,ventana,jugador1,ventana_principal,1))
+    boton4.configure(command=lambda button=boton4: salida_pregunta(button,ventana,jugador1,ventana_principal,2))
+    boton5.configure(command=lambda button=boton5: salida_pregunta(button,ventana,jugador1,ventana_principal,4))
     ventana.grid_columnconfigure(2, minsize=2)
 
 
@@ -274,11 +274,11 @@ def paso_3(ventana_principal,jugador1):
                     width=60)
     R5 = tk.Radiobutton(ventana, variable=variable, value=5, text=texto5, height=4,
                     width=60,wraplength=300,justify='center')
-    R1.configure(command=lambda button=R1: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    R2.configure(command=lambda button=R2: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    R3.configure(command=lambda button=R3: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    R4.configure(command=lambda button=R4: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    R5.configure(command=lambda button=R5: salida_pregunta(button,ventana,jugador1,ventana_principal))            
+    R1.configure(command=lambda button=R1: salida_pregunta(button,ventana,jugador1,ventana_principal,4))
+    R2.configure(command=lambda button=R2: salida_pregunta(button,ventana,jugador1,ventana_principal,1))
+    R3.configure(command=lambda button=R3: salida_pregunta(button,ventana,jugador1,ventana_principal,0))
+    R4.configure(command=lambda button=R4: salida_pregunta(button,ventana,jugador1,ventana_principal,2))
+    R5.configure(command=lambda button=R5: salida_pregunta(button,ventana,jugador1,ventana_principal,3))            
     R1.grid(row=1)
     R2.grid(row=2)
     R3.grid(row=3)
@@ -336,13 +336,13 @@ def paso_4(ventana_principal,jugador1):
                     width=60)
     R7 = tk.Radiobutton(ventana, variable=variable, value=4, text=texto7, height=3,
                     width=60)                                        
-    R1.configure(command=lambda button=R1: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    R2.configure(command=lambda button=R2: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    R3.configure(command=lambda button=R3: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    R4.configure(command=lambda button=R4: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    R5.configure(command=lambda button=R5: salida_pregunta(button,ventana,jugador1,ventana_principal))            
-    R6.configure(command=lambda button=R6: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    R7.configure(command=lambda button=R7: salida_pregunta(button,ventana,jugador1,ventana_principal))                           
+    R1.configure(command=lambda button=R1: salida_pregunta(button,ventana,jugador1,ventana_principal,0))
+    R2.configure(command=lambda button=R2: salida_pregunta(button,ventana,jugador1,ventana_principal,1))
+    R3.configure(command=lambda button=R3: salida_pregunta(button,ventana,jugador1,ventana_principal,4))
+    R4.configure(command=lambda button=R4: salida_pregunta(button,ventana,jugador1,ventana_principal,2))
+    R5.configure(command=lambda button=R5: salida_pregunta(button,ventana,jugador1,ventana_principal,2))            
+    R6.configure(command=lambda button=R6: salida_pregunta(button,ventana,jugador1,ventana_principal,1))
+    R7.configure(command=lambda button=R7: salida_pregunta(button,ventana,jugador1,ventana_principal,3))                           
     R1.grid(row=1)
     R2.grid(row=2)
     R3.grid(row=3)
@@ -405,12 +405,12 @@ def paso_5(ventana_principal,jugador1):
     R6 = tk.Radiobutton(ventana, variable=variable, value=4, text=texto6, height=3,
                     width=60)
 
-    R1.configure(command=lambda button=R1: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    R2.configure(command=lambda button=R2: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    R3.configure(command=lambda button=R3: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    R4.configure(command=lambda button=R4: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    R5.configure(command=lambda button=R5: salida_pregunta(button,ventana,jugador1,ventana_principal))            
-    R6.configure(command=lambda button=R6: salida_pregunta(button,ventana,jugador1,ventana_principal))
+    R1.configure(command=lambda button=R1: salida_pregunta(button,ventana,jugador1,ventana_principal,0))
+    R2.configure(command=lambda button=R2: salida_pregunta(button,ventana,jugador1,ventana_principal,1))
+    R3.configure(command=lambda button=R3: salida_pregunta(button,ventana,jugador1,ventana_principal,3))
+    R4.configure(command=lambda button=R4: salida_pregunta(button,ventana,jugador1,ventana_principal,5))
+    R5.configure(command=lambda button=R5: salida_pregunta(button,ventana,jugador1,ventana_principal,2))            
+    R6.configure(command=lambda button=R6: salida_pregunta(button,ventana,jugador1,ventana_principal,5))
     R1.grid(row=1)
     R2.grid(row=2)
     R3.grid(row=3)
@@ -543,14 +543,14 @@ def paso_6(ventana_principal,jugador1):
     boton7.grid(row=4, column=2)
     boton8 = tk.Button(ventana, text="Otra Cosa",pady=5,padx=2,activebackground='#a8acfd',height=2,width=12,wraplength=ancho_texto_px,justify='center')
     boton8.grid(row=4, column=3)            
-    boton1.configure(command=lambda button=boton1: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton2.configure(command=lambda button=boton2: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton3.configure(command=lambda button=boton3: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton4.configure(command=lambda button=boton4: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton5.configure(command=lambda button=boton5: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton6.configure(command=lambda button=boton6: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton7.configure(command=lambda button=boton7: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton8.configure(command=lambda button=boton8: salida_pregunta(button,ventana,jugador1,ventana_principal))            
+    boton1.configure(command=lambda button=boton1: salida_pregunta(button,ventana,jugador1,ventana_principal,4))
+    boton2.configure(command=lambda button=boton2: salida_pregunta(button,ventana,jugador1,ventana_principal,3))
+    boton3.configure(command=lambda button=boton3: salida_pregunta(button,ventana,jugador1,ventana_principal,2))
+    boton4.configure(command=lambda button=boton4: salida_pregunta(button,ventana,jugador1,ventana_principal,0))
+    boton5.configure(command=lambda button=boton5: salida_pregunta(button,ventana,jugador1,ventana_principal,1))
+    boton6.configure(command=lambda button=boton6: salida_pregunta(button,ventana,jugador1,ventana_principal,2))
+    boton7.configure(command=lambda button=boton7: salida_pregunta(button,ventana,jugador1,ventana_principal,5))
+    boton8.configure(command=lambda button=boton8: salida_pregunta(button,ventana,jugador1,ventana_principal,5))            
     ventana.grid_columnconfigure(2, minsize=2)
     
     
@@ -648,11 +648,11 @@ def paso_7(ventana_principal,jugador1):
     boton5 = tk.Button(ventana, text="Matematicas",pady=5,padx=2,activebackground='#a8acfd',height=2,width=12,wraplength=ancho_texto_px,justify='center')
     boton5.grid(row=4, column=1)
              
-    boton1.configure(command=lambda button=boton1: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton2.configure(command=lambda button=boton2: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton3.configure(command=lambda button=boton3: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton4.configure(command=lambda button=boton4: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton5.configure(command=lambda button=boton5: salida_pregunta(button,ventana,jugador1,ventana_principal))
+    boton1.configure(command=lambda button=boton1: salida_pregunta(button,ventana,jugador1,ventana_principal,0))
+    boton2.configure(command=lambda button=boton2: salida_pregunta(button,ventana,jugador1,ventana_principal,3))
+    boton3.configure(command=lambda button=boton3: salida_pregunta(button,ventana,jugador1,ventana_principal,2))
+    boton4.configure(command=lambda button=boton4: salida_pregunta(button,ventana,jugador1,ventana_principal,2))
+    boton5.configure(command=lambda button=boton5: salida_pregunta(button,ventana,jugador1,ventana_principal,1))
            
     ventana.grid_columnconfigure(2, minsize=2)
 def paso_8(ventana_principal,jugador1):
@@ -795,14 +795,14 @@ def paso_8(ventana_principal,jugador1):
     boton8 = tk.Button(ventana, text="Vos sos muy horrible asi que no me importa. ",pady=5,padx=2,activebackground='#a8acfd',height=4,width=12,wraplength=ancho_texto_px,justify='center')
     boton8.grid(row=4, column=3)        
     
-    boton1.configure(command=lambda button=boton1: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton2.configure(command=lambda button=boton2: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton3.configure(command=lambda button=boton3: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton4.configure(command=lambda button=boton4: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton5.configure(command=lambda button=boton5: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton6.configure(command=lambda button=boton6: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton7.configure(command=lambda button=boton7: salida_pregunta(button,ventana,jugador1,ventana_principal))
-    boton8.configure(command=lambda button=boton8: salida_pregunta(button,ventana,jugador1,ventana_principal))                   
+    boton1.configure(command=lambda button=boton1: salida_pregunta(button,ventana,jugador1,ventana_principal,3))
+    boton2.configure(command=lambda button=boton2: salida_pregunta(button,ventana,jugador1,ventana_principal,0))
+    boton3.configure(command=lambda button=boton3: salida_pregunta(button,ventana,jugador1,ventana_principal,2))
+    boton4.configure(command=lambda button=boton4: salida_pregunta(button,ventana,jugador1,ventana_principal,2))
+    boton5.configure(command=lambda button=boton5: salida_pregunta(button,ventana,jugador1,ventana_principal,1))
+    boton6.configure(command=lambda button=boton6: salida_pregunta(button,ventana,jugador1,ventana_principal,0))
+    boton7.configure(command=lambda button=boton7: salida_pregunta(button,ventana,jugador1,ventana_principal,4))
+    boton8.configure(command=lambda button=boton8: salida_pregunta(button,ventana,jugador1,ventana_principal,5))                   
     ventana.grid_columnconfigure(2, minsize=2)
     
 
@@ -823,12 +823,16 @@ def final(ventana_principal,jugador1):
     Texto_t = tk.Text(ventana,height=25,width=50)#,width = ancho)
     Texto_t.tag_configure("center", justify='center')
     pto = jugador1.puntaje
-    if np.logical_and(pto>78,pto<86):
+    if (pto<18):
         imagen_personaje = 'hinata'
-    elif np.logical_and(pto>78,pto<86):        
-        imagen_personaje = 'kakashi'
-    elif np.logical_and(pto>86,pto<92):        
+    elif np.logical_and(pto>17,pto<35):        
+        imagen_personaje = 'sakura'
+    elif np.logical_and(pto>34,pto<95):        
         imagen_personaje = 'naruto'
+    elif np.logical_and(pto>94,pto<125):        
+        imagen_personaje = 'konohamaru'
+    elif np.logical_and(pto>124,pto<155):        
+        imagen_personaje = 'kakashi'
     else:
         imagen_personaje = 'sasuke'
     image = Image.open(os.path.join(cwd,"imagenes/Naruto/"+imagen_personaje+".png"))

@@ -11,7 +11,7 @@ class personaje:
         self.nombre = 'Nadie'
             
     def punto_pregunta(self,resultado):
-        valor_actual = resultado*10 + np.int(10**0.5*np.random.randn())
+        valor_actual = resultado*7 - np.int(7**0.5*np.random.randn())
         self.pregunta_actual = valor_actual
         self.puntaje +=  self.pregunta_actual
             
