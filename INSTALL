@@ -1,0 +1,23 @@
+Para crear un ejecutable usé PYinstaller con las siguientes dificultades:
+
+Traceback (most recent call last):
+  File "PIL/ImageTk.py", line 176, in paste
+_tkinter.TclError: invalid command name "PyImagingPhoto"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 29, in <module>
+  File "PIL/ImageTk.py", line 115, in __init__
+  File "PIL/ImageTk.py", line 180, in paste
+ModuleNotFoundError: No module named 'PIL._tkinter_finder'
+[481493] Failed to execute script main
+
+
+En https://stackoverflow.com/questions/46680429/importerror-no-module-named-tkinter-finder
+indican que hay que agregar  
+
+pyinstaller module.py --hidden-import='PIL._tkinter_finder'
+
+
+Ahora a resolver el problema de las imagenes no contenidas!
